@@ -36,13 +36,23 @@
 // 4. Test your work!
 
  
-const add = (a, b, callback) => {
-  setTimeout(() => {
-    const sum = a + b;
-    callback (sum);
-  }, 2000);
-};
+// const add = (a, b, callback) => {
+//   setTimeout(() => {
+//     const sum = a + b;
+//     callback (sum);
+//   }, 2000);
+// };
 
-add(1, 4, (sum) => {
-  console.log(sum) // Should print: 5
+// add(1, 4, (sum) => {
+//   console.log(sum) // Should print: 5
+// });
+
+let scores = [68, 95, 54, 84, 77, 75, 63, 74, 69, 80, 71, 63];
+
+let count = scores.filter(score => {
+  if (score >= 70) {
+    count++;
+  }
 });
+
+console.log(count);

@@ -18,7 +18,7 @@ yargs.command({
             type: 'string'
         }
     },
-    handler: function(argv){
+    handler(argv) {
         notes.addNote(argv.title, argv.body)
     }
 });
@@ -34,7 +34,7 @@ yargs.command({
             type: 'string'
         }
     },
-    handler: function(argv) {
+    handler(argv) {
         notes.deleteNote(argv.title);
     }
 });
@@ -43,7 +43,7 @@ yargs.command({
 yargs.command({
     command: 'list',
     describe: 'allows non-user to have access the list of notes available',
-    handler: function(argv){
+    handler(argv) {
         notes.listNotes(argv)
     }
 })
@@ -52,7 +52,7 @@ yargs.command({
 yargs.command({
     command: 'arrange', // aloows user to arrange note in certain order
     describe: 'allows user to view notes without editting ( Read only)',
-    handler: function(argv){
+    handler(argv) {
         notes.arrangeNotes(argv);
     }
 })
