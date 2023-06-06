@@ -5,6 +5,8 @@ const forecast = (lat, lon, callback) => {
     request( {url, json: true}, (err, {body} = {}) => {
         if(err){
             callback('Unable to connect', undefined);
+        }else if (res.statusCode !== 200) {
+        callback('Unable to find location. Please try another search.', undefined);
         }else{
             callback(undefined,  body.weather[0].description + ', it is currently ' + body.main.temp + ' degrees ');
         }
