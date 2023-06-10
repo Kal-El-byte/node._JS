@@ -31,23 +31,23 @@ app.use(express.static(publicDirectoryPath));
     res.render('about', {
         title: 'About Me',
         name: 'Daniel King'
-    })
- })
+    });
+ });
 
  app.get('/help', (req, res) => {
     res.render('help', {
         title: 'Help',
         description: 'How can we help you',
         name: 'Daniel King'
-    })
- })
+    });
+ });
 
 app.get('/weather', (req, res) => {
     if(!req.query.address){
         return res.send({
-            error: 'No weather location found'
-        })
-    }
+            error: 'Could not connect to the server, Check your internet connection'
+        });
+    };
 
     geocode(req.query.address, (err, { latitude, longitude, location }  = {}) => {
         if(err){
@@ -62,7 +62,7 @@ app.get('/weather', (req, res) => {
                 forecast: forecastData,
                 location,
                 address: req.query.address
-            })
+            });
           });  
     });
     // res.send({
